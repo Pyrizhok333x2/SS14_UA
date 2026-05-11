@@ -1,7 +1,7 @@
 # Рецептик від Пиріжка (замініть на просто "Рецепти" коли щось будете додавати сюди)
 
 - type: latherecipe
-  id: DefibrillatorCompact
+  id: MR_DefibrillatorCompact
   result: DefibrillatorCompact
   completetime: 4
   materials:
