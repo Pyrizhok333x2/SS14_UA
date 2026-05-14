@@ -1,3 +1,4 @@
+using Content.Server.Sich.Sponsors.UI;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -9,13 +10,23 @@ namespace Content.Server.Sich.Sponsors;
 
 public sealed class SponsorGhostSystem : EntitySystem
 {
-    [Dependency] private readonly ISichSponsorManager _sichSponsorManager = default!;
+    [Dependency] private readonly ISponsorManager _sponsorManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<GhostComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<GhostComponent, SpawnGhostForPlayerEvent>(OnSpawnGhostForPlayerEventHandler);
+        SubscribeLocalEvent<SaveGhostColorEvent>(OnGhostColorSaved);
+    }
+
+    private void OnGhostColorSaved(SaveGhostColorEvent ev)
+    {
+        var session = ev.Session;
+        if (session.AttachedEntity is not { } entity)
+            return;
+        if (TryComp<GhostComponent>(entity, out var comp))
+            SetGhostOOCColor(entity, comp);
     }
 
     private void OnSpawnGhostForPlayerEventHandler(Entity<GhostComponent> ent, ref SpawnGhostForPlayerEvent args)
@@ -30,11 +41,10 @@ public sealed class SponsorGhostSystem : EntitySystem
 
     private void SetGhostOOCColor(EntityUid uid, GhostComponent component)
     {
-        var color = TryGetOOCColorForGhost(uid);
+        var color = GetOOCColorForGhost(uid);
         if (string.IsNullOrEmpty(color))
-        {
-            return;
-        }
+            color = "#FFFFFFFF";
+
         var c = Color.FromHex(color);
         var msg = new SetGhostColorMsg()
         {
@@ -43,20 +53,14 @@ public sealed class SponsorGhostSystem : EntitySystem
         RaiseLocalEvent(uid, msg);
     }
 
-    private string? TryGetOOCColorForGhost(EntityUid uid)
+    private string? GetOOCColorForGhost(EntityUid uid)
     {
         if (!TryGetPlayerSessionFromEntity(uid, out var session))
         {
             return null;
         }
 
-        var sponsor = _sichSponsorManager.GetSichSponsorOrNull(session.UserId);
-        if (sponsor is null)
-        {
-            return null;
-        }
-        if(sponsor.SponsorRank == null) return null;
-        return sponsor.SponsorRank.Color;
+        return _sponsorManager.GetGhostColor(session.UserId);
     }
 
     private bool TryGetPlayerSessionFromEntity(EntityUid uid, [NotNullWhen(true)] out ICommonSession? session)
