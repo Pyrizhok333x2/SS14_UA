@@ -1,6 +1,6 @@
 # Динамічні
 
 - type: latheRecipePack
-  id: MR_CompactReanimation
+  id: MRCompactReanimation
   recipes:
   - DefibrillatorCompact
