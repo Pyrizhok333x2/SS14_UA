@@ -8,7 +8,7 @@
     tags:
     - Pickaxe
   - type: Sprite
-    sprite: Objects/Weapons/Melee/diamondpickaxe.rsi
+    sprite: _Mriya/Objects/Weapons/Melee/diamondpickaxe.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.4 # Це швидкість атаки, напевно
@@ -32,7 +32,7 @@
     shape: # Це форма предмету. Сам поки не розубрався, але такі значення роблять форму Т
     - 0,0,2,0
     - 1,1,1,2
-    sprite: Objects/Weapons/Melee/diamondpickaxe.rsi
+    sprite: _Mriya/Objects/Weapons/Melee/diamondpickaxe.rsi
     storedRotation: -45 # Це розгортає спрайт icon у інвентарі. Дозволяє робити предмет зручнішим у інвентарі не змінюючи спрайт безпосередньо
   - type: UseDelay # хз що це
   - type: PhysicalComposition
