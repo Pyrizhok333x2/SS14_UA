@@ -1,0 +1,21 @@
+## Статичні
+- type: latheRecipePack
+  id: HardsuitsSpaceWorksBase
+  - ClothingHeadHelmetEVA
+  - ClothingOuterHardsuitEVA
+  - ClothingOuterSuitEmergency
+
+# Динамічні
+
+- type: latheRecipePack
+  id: JetpackSpaceWorks
+  recipes:
+  - JetpackMini
+  - JetpackBlue
+
+- type: latheRecipePack
+  id: HardsuitsSpaceWorks
+  recipes:
+  - ClothingOuterHardsuitSpatio
+  - ClothingOuterHardsuitEngineering
+  - ClothingOuterHardsuitAtmos
