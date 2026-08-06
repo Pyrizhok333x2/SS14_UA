@@ -43,7 +43,7 @@
   - Clothing
   completetime: 10
   materials:
-    Steel: 500
+    Steel: 250
     Glass: 200
 
 - type: latheRecipe
