@@ -77,9 +77,9 @@
   completetime: 15
   materials:
     Durathread: 500
-    Steel: 1500
+    Steel: 1000
     Plastic: 500
-    Glass: 500
+    Glass: 300
 
 - type: latheRecipe
   id: ClothingOuterHardsuitAtmos
@@ -89,9 +89,9 @@
   completetime: 15
   materials:
     Durathread: 500
-    Steel: 1500
+    Steel: 1000
     Plastic: 1500
-    Glass: 500
+    Glass: 300
 
 # Jetpack
 
@@ -102,7 +102,6 @@
   - Clothing
   completetime: 15
   materials:
-    Durathread: 1000
     Steel: 1000
     Plastic: 500
 
