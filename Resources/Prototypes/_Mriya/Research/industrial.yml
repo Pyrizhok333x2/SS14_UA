@@ -1,7 +1,7 @@
 # Тир 1 
 
 - type: technology
-  id: TestEquipment
+  id: SpaceWorkIndustrial
   name: research-technology-space-works
   icon:
     sprite: Objects/Tanks/Jetpacks/blue.rsi

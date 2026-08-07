@@ -1,6 +1,7 @@
 ## Статичні
 - type: latheRecipePack
   id: HardsuitsSpaceWorksBase
+  recipes:
   - ClothingHeadHelmetEVA
   - ClothingOuterHardsuitEVA
   - ClothingOuterSuitEmergency

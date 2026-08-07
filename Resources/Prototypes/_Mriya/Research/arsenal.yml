@@ -1,7 +1,7 @@
 # Тир 1
 
 - type: technology
-  id: TestEquipment
+  id: SpaceWorkSecurity
   name: research-technology-security-space-works
   icon:
     sprite: Objects/Tanks/Jetpacks/security.rsi

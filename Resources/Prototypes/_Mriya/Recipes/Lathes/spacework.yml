@@ -93,7 +93,7 @@
     Plastic: 1500
     Glass: 300
 
-# Jetpack
+# Jetpacks
 
 - type: latheRecipe
   id: JetpackSecurity
@@ -150,3 +150,15 @@
   materials:
     Steel: 250
     Glass: 200
+
+# Jetpack
+
+- type: latheRecipe
+  id: JetpackBlack
+  result: JetpackBlack
+  categories:
+  - Clothing
+  completetime: 15
+  materials:
+    Steel: 1000
+    Plastic: 500
